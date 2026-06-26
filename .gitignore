@@ -1,0 +1,16 @@
+# Python virtual environment
+.venv/
+
+# All ini files
+*.ini
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Audio assets
+*.wav
+
+# ASR / qwen long output artifacts
+auto-conference-minutes/scripts/auto_minutes_python/output/
