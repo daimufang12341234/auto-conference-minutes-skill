@@ -1,0 +1,56 @@
+; ===========================================
+; 阿里云百炼 语音转文字 配置文件
+; 支持环境变量: ${VAR} 或 ${VAR:-默认值}
+; ===========================================
+
+[api]
+; 阿里云百炼 API Key 
+api_key = sk-xxxxx
+; 地域: cn(北京) / intl(新加坡)
+region = cn
+
+[asr]
+; 默认调用方式: qwen / fun / paraformer
+method = qwen
+
+[qwen]
+; 模型名称
+model = qwen3-asr-flash-2026-02-10
+; 语言代码 (可选, 留空自动识别): zh / en / ja / yue 等
+language = zh
+; 是否启用 ITN 逆文本标准化
+enable_itn = false
+
+[fun_asr]
+; 模型名称: fun-asr(中/英) / fun-asr-mtl(多语言)
+model = fun-asr
+; 是否启用说话人分离
+diarization_enabled = false
+; 说话人数量参考值 (2-100, 0=自动)
+speaker_count = 0
+; 语言代码 (可选): zh / en / ja / ko / vi 等
+language = zh
+; 轮询间隔 (秒)
+poll_interval = 3
+; 超时时间 (秒)
+timeout = 3600
+
+[paraformer]
+; 模型名称: paraformer-v2(推荐) / paraformer-v1
+model = paraformer-v2
+; 是否启用说话人分离
+diarization_enabled = false
+; 说话人数量参考值 (2-100, 0=自动)
+speaker_count = 0
+; 语言代码 (可选, 多个用逗号分隔): zh,en,ja,yue,ko,de,fr,ru
+language_hints = zh
+; 是否过滤语气词
+disfluency_removal_enabled = false
+; 是否启用时间戳校准
+timestamp_alignment_enabled = false
+
+[output]
+; 结果保存目录 (相对于项目根目录)
+result_dir = output
+; 是否自动保存结果
+auto_save = true
