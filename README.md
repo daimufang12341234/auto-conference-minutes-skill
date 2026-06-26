@@ -170,13 +170,21 @@ pip install -r requirements.txt
 ## 注意事项
 
 - `auto-conference-minutes` 与 `docx` 技能需放在同一 skills 目录下协同使用。
-- `.venv/`、`*.ini`（含真实凭证的配置）、`__pycache__/`、`*.pyc`、`*.wav`、`output/` 均已被 `.gitignore` 排除，不会进入仓库；请在目标机器上自行创建虚拟环境并填写 API 凭证。
 - 转写脚本的切分上限受 QwenASR 单段 ≤10MB 限制，请勿将 `max_size_mb` 设置过大。
 - 会议纪要内容遵循"实事求是、简洁精炼、可操作、保留上下文、使用中文"的质量规则，详见 `auto-conference-minutes/references/prompt_template.md`。
 
+## 致谢
+
+本项目的 `auto-conference-minutes` 技能为作者原创，但其中依赖的 `docx` 技能来自 **Anthropic, PBC**（© 2025），特此致谢。
+
+`docx` 技能是 Anthropic 提供的专有技能（Proprietary Skill），**不是开源项目**，其使用受 [Anthropic 服务条款](https://www.anthropic.com/legal/consumer-terms) 约束。完整许可证内容见 `docx/LICENSE.txt`。
+
+感谢 Anthropic 提供这一高质量的 Word 文档操作技能，使得 `auto-conference-minutes` 能够基于它完成会议纪要的文档化输出。本项目在符合 Anthropic 许可条款的前提下使用该技能，并遵守开源社区的归属与致谢规范。
+
 ## 许可证
 
-仓库根目录 `LICENSE`。`docx` 技能的许可证见 `docx/LICENSE.txt`。
+- 本仓库根目录的 `LICENSE` 适用于 `auto-conference-minutes` 技能及本仓库中作者原创部分。
+- `docx` 技能的许可证见 `docx/LICENSE.txt`，版权归 Anthropic, PBC 所有。
 
 ---
 
@@ -358,6 +366,15 @@ Upon receiving a request, the skill executes the following steps in order (see `
 - The chunk size is bounded by the QwenASR per-segment limit of ≤10MB — do not set `max_size_mb` too large.
 - Minutes content follows the quality rules "factual, concise, actionable, context-preserving, in Chinese" — see `auto-conference-minutes/references/prompt_template.md`.
 
+## Acknowledgments
+
+The `auto-conference-minutes` skill in this repository is original work by the author, but it depends on the `docx` skill, which is provided by **Anthropic, PBC** (© 2025). We would like to express our gratitude.
+
+The `docx` skill is a Proprietary Skill provided by Anthropic and is **not open source**. Its use is governed by [Anthropic's Terms of Service](https://www.anthropic.com/legal/consumer-terms). The full license text is available in `docx/LICENSE.txt`.
+
+We thank Anthropic for providing this high-quality Word document manipulation skill, which enables `auto-conference-minutes` to produce properly formatted meeting-minutes documents. This project uses the `docx` skill within the scope of Anthropic's license terms and follows open-source community conventions for attribution and acknowledgment.
+
 ## License
 
-Root `LICENSE`. The `docx` skill license is in `docx/LICENSE.txt`.
+- The `LICENSE` at the root of this repository applies to the `auto-conference-minutes` skill and all original parts authored by the repository owner.
+- The `docx` skill is licensed under `docx/LICENSE.txt`, copyright Anthropic, PBC.
