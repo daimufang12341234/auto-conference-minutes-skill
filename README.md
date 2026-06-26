@@ -118,9 +118,21 @@ pip install -r requirements.txt
 3. `config_qwen_split.ini` 中已填写有效的阿里云百炼 API Key（或已设置 `DASHSCOPE_API_KEY` 环境变量）。
 4. 待转写的 `.wav` 会议录音文件已准备好。
 
+### 适用平台
+
+本技能可在以下支持技能（Skill）机制的 AI 助手平台中使用：
+
+| 平台 | 说明 |
+|------|------|
+| **Claude Code** | Anthropic 官方 CLI 工具，支持 Skill 加载，可在终端或 VS Code 扩展中使用 |
+| **QwenPaw** | 阿里云百炼的 AI 助手平台，原生支持技能机制，本技能最初在此平台开发与测试 |
+| **OpenClaude** | 开源 Claude 助手项目，支持自定义技能加载 |
+
+只要平台支持读取 `SKILL.md` 并按其中定义的步骤自动执行，即可使用本技能。将 `auto-conference-minutes` 和 `docx` 两个技能目录放置在该平台的 skills 目录下，平台即可自动识别与调用。
+
 ### 如何使用
 
-向 AI 助手上传 `.wav` 会议录音文件，并表达需要生成会议纪要的意图（例如："请基于这段会议录音生成会议纪要"）。技能将自动执行以下流程：
+在上述平台中，向 AI 助手上传 `.wav` 会议录音文件，并表达需要生成会议纪要的意图（例如："请基于这段会议录音生成会议纪要"）。技能将自动执行以下流程：
 
 - **输入**：`.wav` 格式的会议录音文件
 - **处理**：音频转写 → 内容归纳 → 模板填充（全程自动，无需手动操作）
@@ -290,9 +302,21 @@ Make sure the following conditions are met:
 3. A valid Alibaba Cloud Bailian API key is set in `config_qwen_split.ini` (or via the `DASHSCOPE_API_KEY` environment variable).
 4. The `.wav` meeting recording file to be transcribed is ready.
 
+### Supported Platforms
+
+This skill can be used on AI assistant platforms that support the Skill mechanism:
+
+| Platform | Description |
+|----------|-------------|
+| **Claude Code** | Anthropic's official CLI tool with Skill support; usable in terminal or VS Code extension |
+| **QwenPaw** | Alibaba Cloud Bailian's AI assistant platform with native Skill support; this skill was originally developed and tested here |
+| **OpenClaude** | Open-source Claude assistant project that supports custom Skill loading |
+
+As long as the platform can read `SKILL.md` and automatically execute the steps defined within, this skill is usable. Place both the `auto-conference-minutes` and `docx` skill directories in the platform's skills directory, and the platform will auto-detect and invoke them.
+
 ### How to Use
 
-Upload a `.wav` meeting recording file to the AI assistant and express the intent to generate meeting minutes (e.g., "Please generate meeting minutes based on this recording"). The skill will automatically execute the following flow:
+On any of the above platforms, upload a `.wav` meeting recording file to the AI assistant and express the intent to generate meeting minutes (e.g., "Please generate meeting minutes based on this recording"). The skill will automatically execute the following flow:
 
 - **Input**: a `.wav` meeting recording file
 - **Processing**: audio transcription → content summarization → template fill-in (fully automatic, no manual steps required)
